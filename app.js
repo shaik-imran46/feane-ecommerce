@@ -3,7 +3,7 @@ var products = [
         id: "product_1",
         image: "imagess/w_ethnic",
         title: "stylish ethnic wear",
-        price: 400
+        price: "Rs"+400
     }
 ];
 var addcart = (event) => {

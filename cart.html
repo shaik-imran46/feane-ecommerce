@@ -1,1 +1,129 @@
-!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cart{
+
+width:300px;
+background-color: lightslategrey;
+display: grid;
+grid-template-rows: 70px 1fr 70px;
+z-index: 3;
+position:fixed;
+top:100px;
+right:-400px;
+bottom:0px;
+overflow: auto;
+border-radius: 30% 0 0 0;
+justify-content: center;
+color:black;
+
+
+}
+.showover .cart{
+right:0px;
+
+
+
+
+}
+.cart::-webkit-scrollbar{
+width:0px;
+}
+.cart header{
+text-align: center;
+font-size: 20px;
+width:150px;
+border:none;
+}
+.cart-list{
+display: grid;
+grid-template-columns: 100px 1fr 50px;
+}
+.cart-list li{
+margin:10px;
+
+}
+.cart-btn{
+display:grid;
+grid-template-columns: auto;
+}
+.cart-btn button{
+
+margin: 10px;
+background-color: goldenrod;
+text-align: center;
+
+}
+    </style>
+</head>
+<body>
+    <div class="cart">
+        <header>Shopping cart</header>
+        <div class="cartcontainer">
+
+        </div>
+
+
+
+        <div class="cart-btn">
+            <!-- <button  onclick="close()">close</button> -->
+            <button>checkout</button>
+
+        </div>
+    </div>
+<script>
+    var products = [
+    {
+        id: "product_1",
+        image: "imagess/w_ethnic",
+        title: "stylish ethnic wear",
+        price: "Rs"+400
+    }
+];
+var addcart = (event) => {
+    var btn = event.target;
+    var id = btn.getAttribute("id");
+    var tagId = "product_" + id;
+    products.forEach((item, index) => {
+        if (item.id == tagId) {
+            var divTag = document.createElement("div");
+            divTag.setAttribute("class", "cart-list");
+            var li1 = document.createElement("li");
+            var imgTag = document.createElement("img");
+            imgTag.setAttribute("src", item.image);
+            imgTag.style.width = "80px";
+            imgTag.style.height = "80px";
+
+
+            li1.append(imgTag);
+            divTag.append(li1);
+            var li2 = document.createElement("li");
+            li2.innerHTML = item.title;
+            divTag.append(li2);
+            var li3 = document.createElement("li");
+            li3.innerHTML = item.price;
+            divTag.append(li3);
+            document.querySelector(".cartcontainer").append(divTag);
+
+
+
+        }
+
+    })
+    
+};
+var cart_toggle=()=>{
+    var body=document.querySelector("body");
+    body.classList.toggle("showover");
+};
+
+</script>
+
+    
+    
+</body>
+</html>

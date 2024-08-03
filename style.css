@@ -186,6 +186,9 @@ footer {
     right:-400px;
     bottom:0px;
     overflow: auto;
+    border-radius: 30% 0 0 0;
+    justify-content: center;
+    color:black;
     
 
 }
